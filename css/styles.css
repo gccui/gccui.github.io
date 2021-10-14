@@ -1,241 +1,137 @@
-/*I chose to organize my external CSS by element sorting according to Meiert's 2013 blog post.
-Everything is sorted into general sections based on what the element/selector affects.
-It makes more sense to me to sort the code by what the lines affect.*/
+.container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
 
-/*Sectioning and Structuring*/
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap");
+.c1, .album, .c2, .c3, .tracklist, .info { /*for small screens*/
+  width: 100%
+
+}
+
+@media (min-width: 600px) { /*for medium screens*/
+  .c1, .c2, .c3{
+    width: 40%;
+  }
+  .album, .tracklist {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .info {
+    width: 40%;
+    float: right;
+    margin-top: 10px;
+    margin-right: 16%;
+  }
+}
+
+@media (min-width: 800px) { /*for large screens*/
+  .container {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Rozha+One&display=swap');
+
+h1 {
+  font-family: 'Rozha One', serif;
+  font-size: 100%;
+}
+
 body {
-	font-family: 'Raleway', sans-serif;
-	font-size: 90%;
-	color: #666;
-	background-color: #FFC8DD;
+  font-family: 'Oswald', sans-serif;
+  font-size: 90%;
+  background-color: #9da5f2;
 }
-/*Headings*/
-h1.center-text {
-	font-family: 'Berkshire Swash', serif;
-	font-size: 450%;
+
+ul { /*style for nav bar*/
+  list-style-type: none;
+  margin: 0;
+  padding-bottom: 20px;
 }
-/*Lists*/
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
+
 ul li {
-	display: inline;
-	padding: 10px;
-	float: right;
-}ul li a, 
+  display: inline;
+  padding: 10px;
+  float: center;
+  color: #f9b9f4;
+  font-size: 150%;
+}
+
+ul li a, 
 ul a :hover, 
 ul li a:focus, 
 ul li a:active {
-	border: none;
-	text-decoration: none;
-	color: inherit;
+  border: none;
+  text-decoration: none;
+  color: inherit;
 }
-li {
-	list-style-image: url("images/icon-plus.png");
-	line-height: 1.6em;
+
+.c1, .album, .c2, .c3 {
+  display:inline-block;
+  margin-right: 30px;
 }
-/*Media*/
-video {
-	width: 940px;
+
+.tracklist {
+  display:inline-block;
+  background-color: #e83f2d;
+  color: #f9b9f4;
 }
-/*Forms*/
-fieldset {
-	width: 310px;
-	margin-top: 20px;
-	border: 1px solid #d6d6d6;
-	background-color: #ffffff;
-	line-height: 1.6em;
+
+.info {
+  font-size: 110%;
+  background-color: #e7dac8;
+  color: #e83f2d;
+  text-align: center;
 }
-legend {
-	font-style: italic;
-	color: #666666;
+
+.c3 img {
+  margin-top: 20px;
 }
-input[type="text"] {
-	width: 120px;
-	border: 1px solid #d6d6d6;
-	padding: 2px;
-	outline: none;
+
+.img-1 {
+  width: 80%;
 }
-input[type="text"]:focus,
-input[type="text"]:hover {
-	background-color: #d0e2f0;
-	border: 1px solid #999999;
-}
-input[type="submit"] {
-	border: 1px solid #006633;
-	background-color: #009966;
-	color: #ffffff;
-	border-radius: 5px;
-	padding: 5px;
-	margin-top: 10px;
-}
-input[type="submit"]:hover {
-	border: 1px solid #006633;
-	background-color: #00CC33;
-	color: #ffffff;
-	cursor: pointer;
-}
-/*Tables*/
-table {
-	border-spacing: 0px;
-}
-th, td {
-	padding: 5px 30px 5px 10px;
-	border-spacing: 0px;
-	font-size: 90%;
-	margin: 0px;
-}
-th, td {
-	text-align: left;
-	background-color: #BDE0FE;
-	border-top: 1px solid #A2D2FF;
-	border-bottom: 1px solid #A2D2FF;
-	border-right: 1px solid #A2D2FF;
-}
-tr.head th {
-	color: #fff;
-	background-color: #9668b0;
-	border-bottom: 2px solid #547ca0;
-	border-right: 1px solid #749abe;
-	border-top: 1px solid #90b4d6;
-	text-align: center;
-	text-shadow: -1px -1px 1px #666666;
-	letter-spacing: 0.15em;
-}
-td {
-	text-shadow: 1px 1px 1px #ffffff;
-}
-tr.even td, tr.even th {
-	background-color: #D1E9FF;
-}
-tr.head th:first-child {
-	-webkit-border-top-left-radius: 5px;
-	-moz-border-radius-topleft: 5px;
-	border-top-left-radius: 5px;
-}
-tr.head th:last-child {
-	-webkit-border-top-right-radius: 5px;
-	-moz-border-radius-topright: 5px;
-	border-top-right-radius: 5px;
-}
-/*Attributes*/
-.title {
-	float: left;
-	width: 160px;
-	clear: left;
-}
-.submit {
-	width: 310px;
-	text-align: right;
-}
-.center-mid-1{
-	width: 940px;
-	background-color: #BEB594;
-	padding-bottom: 15px;
-	padding-top: 5px;
-}
-.center-mid-2{
-	width: 940px;
-	background-color: #efeae6;
-	padding-bottom: 15px;
-	padding-top: 5px;
-}
-.center-mid-3{
-	width: 940px;
-	background-color: #dee1e5;
-	padding-bottom: 15px;
-	padding-top: 5px;
-}
-.center-2{
-	width: 940px;
-	margin: auto;
-	padding-bottom: 15px;
-	padding-top: 5px;
-}
-.center-3{
-	width: 300px;
-	margin: 0 0;
-}
-.img-1{
-	margin: auto;
-	width: 100%;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-.img-2{
-	margin: auto;
-	padding-left: 10px;
-	width: 30%;
-}
+
 .center-text {
-	text-align: center;
-	padding-top: 30px;
-	padding-left: 25px;
-	padding-right: 25px;
+  text-align: center;
 }
-.center-2>h1, .center-2>p {
-	text-align: center;
+
+.purple {
+  font-family: 'Oswald', sans-serif;
 }
-.center-mid-3>p {
-	padding-left: 25px;
-	padding-right: 25px;
+
+#oval { /*style for logo*/
+  background-color: #e7dac8;
+  font-family: 'Rozha One', serif;
+  height: 150px;
+  width: 400px;
+  margin: auto;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 300%;
+  color: #9da5f2;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.footer {
-	text-align: center;
-	margin: auto;
-}
-.smlogo{
-	padding-left: 10px;
-}
-}
-.menu-holder {
-	float: right;
-	max-width: 80%;
-	position: fixed;
-	text-align: center;
-	height: 100%;
-	background-color: #ffffff;
-	right: -100%;
-	top: 0;
-	transition: right .3s ease;
-	width: 100%;
-	overflow: auto;
-	max-width: 100%;
-	z-index: 99;
-}    
-#fix-1 {
-	position: fixed;
-	right: 80px;
-	bottom: 50px;
-	width: 200px;
-} 
-#fix-2 {
-	position: fixed;
-	left: 80px;
-	bottom: 375px;
-	width: 200px;
-}
-#fix-3 {
-	position: fixed;
-	right: 80px;
-	top: 50px;
-	width: 200px;
-}
+
 #page {
-	max-width: 940px;
-	min-width: 720px;
-	margin: 10px auto 10px auto;
-	border: 4px  #000;
-	background-color: #f6f4e8;
-	vertical-align: baseline;
+  max-width: 940px;
+  min-width: 720px;
+  margin: auto;
+  border: 1px solid red
 }
-/* colors
-purple CDB4DB
-light pink FFC8DD
-dark pink FFAFCC
-light blue BDE0FE
-dark blue A2D2FF
+
+/*
+COLORS:
+purple #9da5f2
+tan #e7dac8
+red #e83f2d
+pink #f9b9f4
 */
